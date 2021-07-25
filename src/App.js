@@ -7,7 +7,7 @@ export default function App() {
     <div>
       App
       <Row
-        title="Netflix Originals"
+        title="NETFLIX ORIGINALS"
         fetchURL={requests.fetchNetflixOriginals}
       />
       {/* <Row

@@ -1,0 +1,25 @@
+.row {
+  padding: 1.25rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.row::-webkit-scrollbar {
+  display: none;
+}
+
+.row__image {
+  display: inline-block;
+  margin: 0.25rem 0.35rem;
+  height: clamp(40vh, 9rem, 9rem);
+  border-radius: 0.6rem;
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  transition: transform 0.4s ease;
+}
+
+.row__image:hover {
+  transform: scale(1.06);
+}

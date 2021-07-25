@@ -18,6 +18,7 @@ export default function Row({ title, fetchURL }) {
 
   return (
     <div className="row">
+      <h2>{ title }</h2>
       {movies.map(function (movie) {
         return (
             <img
