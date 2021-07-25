@@ -22,13 +22,14 @@ export default function Row({ title, fetchURL }) {
       <div className="row">
         {movies.map(function (movie) {
           return (
-            <img
+            movie.poster_path && <img
               className="row__image"
               src={`${baseImageURL}/${imageSize}/${movie.poster_path}`}
               alt={movie.title ? movie.title : movie.name}
             />
           );
         })}
+        {console.log(movies)}
       </div>
     </div>
   );
