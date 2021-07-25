@@ -17,17 +17,19 @@ export default function Row({ title, fetchURL }) {
   }, [fetchURL]);
 
   return (
-    <div className="row">
-      <h2>{ title }</h2>
-      {movies.map(function (movie) {
-        return (
+    <div>
+      <h2>{title}</h2>
+      <div className="row">
+        {movies.map(function (movie) {
+          return (
             <img
               className="row__image"
               src={`${baseImageURL}/${imageSize}/${movie.poster_path}`}
               alt={movie.title ? movie.title : movie.name}
             />
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
