@@ -6,8 +6,6 @@ import YouTube from 'react-youtube';
 // import { API_KEY } from './requests';
 
 export default function Row({ title, fetchURL }) {
-  const baseImageURL = 'https://image.tmdb.org/t/p';
-  const imageSize = 'w500';
   const [movies, setMovies] = useState([]);
   const [movieId, setMovieId] = useState('');
   const [showComponent, setShowComponent] = useState(false);
@@ -50,7 +48,7 @@ export default function Row({ title, fetchURL }) {
             movie.poster_path && (
               <img
                 className="row__image"
-                src={`${baseImageURL}/${imageSize}/${movie.poster_path}`}
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 alt={movie.title ? movie.title : movie.name}
                 onClick={() =>
                   displayTrailer(

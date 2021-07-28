@@ -1,9 +1,9 @@
 .row__title {
-  padding-left: 1rem;
+  padding-left: 1.25rem;
 }
 
 .row {
-  padding: 1.25rem;
+  padding: 1rem 1.75rem;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -30,7 +30,7 @@
 }
 
 .row__message {
-  padding-left: 1rem;
+  padding-left: 1.25rem;
   padding-bottom: 0.5rem;
   text-align: center;
 }
