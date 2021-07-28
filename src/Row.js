@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import './Row.css';
 import axios from './axios';
-import './Row.css'
+import movieTrailer from 'movie-trailer';
+import YouTube from 'react-youtube';
+// import { API_KEY } from './requests';
 
 export default function Row({ title, fetchURL }) {
   const baseImageURL = 'https://image.tmdb.org/t/p';
   const imageSize = 'w500';
   const [movies, setMovies] = useState([]);
+  const [movieId, setMovieId] = useState('');
+  const [showComponent, setShowComponent] = useState(false);
+  const opts = {
+    width: '100%',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -16,21 +28,51 @@ export default function Row({ title, fetchURL }) {
     fetchData();
   }, [fetchURL]);
 
+  function displayTrailer(title, release_date, id) {
+    console.log(title, release_date.substr(0, 4));
+    movieTrailer(title, { year: release_date, id: true }).then((response) => {
+      console.log(response);
+      setMovieId(response);
+      showComponent ? setShowComponent(false) : setShowComponent(true);
+    });
+
+    // movieTrailer(null, { tmdbId: id, apiKey: API_KEY }).then((response) =>
+    //   console.log(response)
+    // );
+  }
+
   return (
     <div>
-      <h2>{title}</h2>
+      <h2 className="row__title">{title}</h2>
       <div className="row">
         {movies.map(function (movie) {
           return (
-            movie.poster_path && <img
-              className="row__image"
-              src={`${baseImageURL}/${imageSize}/${movie.poster_path}`}
-              alt={movie.title ? movie.title : movie.name}
-            />
+            movie.poster_path && (
+              <img
+                className="row__image"
+                src={`${baseImageURL}/${imageSize}/${movie.poster_path}`}
+                alt={movie.title ? movie.title : movie.name}
+                onClick={() =>
+                  displayTrailer(
+                    movie.title ? movie.title : movie.name,
+                    movie.release_date
+                      ? movie.release_date
+                      : movie.first_air_date,
+                    movie.id
+                  )
+                }
+              />
+            )
           );
         })}
-        {console.log(movies)}
       </div>
+      {showComponent ? (
+        movieId ? (
+          <YouTube videoId={movieId} opts={opts} />
+        ) : (
+          <p className="row__message">No Trailer Found :(</p>
+        )
+      ) : null}
     </div>
   );
 }
