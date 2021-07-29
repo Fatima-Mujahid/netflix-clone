@@ -4,11 +4,13 @@
   justify-content: space-between;
   background-color: transparent;
   margin-bottom: -3.1rem;
-  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 .nav__logo {
@@ -18,4 +20,9 @@
 .nav__image {
   height: 1.85rem;
   margin-right: 1rem;
+}
+
+.nav--scrolled {
+    background-color: #111;
+    transition: background-color 200ms linear;
 }

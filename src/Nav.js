@@ -3,15 +3,11 @@ import './Nav.css';
 
 export default function Nav() {
   useEffect(() => {
-  //  $(function () {
-  //    $(document).scroll(function () {
-  //      var $nav = $('#mainNavbar ');
-  //      $nav.toggleClass('scrolled ', $(this).scrollTop() > $nav.height());
-  //    });
-  //  });
-    
-}, [])
-    
+    document.addEventListener('scroll', (e)=> {
+      (document.getElementsByClassName('nav')[0]).classList.toggle('nav--scrolled', window.scrollY > 120);
+    });
+  }, []);
+
   return (
     <div className="nav">
       <img
