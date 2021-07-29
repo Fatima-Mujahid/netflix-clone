@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import './Row.css';
-import axios from './axios';
-import movieTrailer from 'movie-trailer';
-import YouTube from 'react-youtube';
-// import { API_KEY } from './requests';
+import React, { useEffect, useState } from 'react'
+import './Row.css'
+import axios from './axios'
+import movieTrailer from 'movie-trailer'
+import YouTube from 'react-youtube'
+// import { API_KEY } from './requests'
 
 export default function Row({ title, fetchURL }) {
-  const [movies, setMovies] = useState([]);
-  const [movieId, setMovieId] = useState('');
-  const [showComponent, setShowComponent] = useState(false);
+  const [movies, setMovies] = useState([])
+  const [movieId, setMovieId] = useState('')
+  const [showComponent, setShowComponent] = useState(false)
   const opts = {
     width: '100%',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
-  };
+  }
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(fetchURL);
-      setMovies(request.data.results);
-      return;
+      const request = await axios.get(fetchURL)
+      setMovies(request.data.results)
+      return
     }
-    fetchData();
-  }, [fetchURL]);
+    fetchData()
+  }, [fetchURL])
 
   function displayTrailer(title, release_date, id) {
-    console.log(title, release_date.substr(0, 4));
+    console.log(title, release_date.substr(0, 4))
     movieTrailer(title, { year: release_date, id: true }).then((response) => {
-      console.log(response);
-      setMovieId(response);
-      showComponent ? setShowComponent(false) : setShowComponent(true);
-    });
+      console.log(response)
+      setMovieId(response)
+      showComponent ? setShowComponent(false) : setShowComponent(true)
+    })
 
     // movieTrailer(null, { tmdbId: id, apiKey: API_KEY }).then((response) =>
     //   console.log(response)
-    // );
+    // )
   }
 
   return (
@@ -61,7 +61,7 @@ export default function Row({ title, fetchURL }) {
                 }
               />
             )
-          );
+          )
         })}
       </div>
       {showComponent ? (
@@ -72,5 +72,5 @@ export default function Row({ title, fetchURL }) {
         )
       ) : null}
     </div>
-  );
+  )
 }

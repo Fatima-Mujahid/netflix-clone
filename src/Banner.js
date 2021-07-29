@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import './Banner.css';
-import axios from './axios';
-import requests from './requests';
+import React, { useState, useEffect } from 'react'
+import './Banner.css'
+import axios from './axios'
+import requests from './requests'
 
 export default function Banner() {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState({})
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchNetflixOriginals);
+      const request = await axios.get(requests.fetchNetflixOriginals)
       setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length)
         ]
-      );
+      )
     }
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <div
@@ -35,5 +35,5 @@ export default function Banner() {
         {movie.overview && movie.overview.length >= 150 && '...'}
       </p>
     </div>
-  );
+  )
 }

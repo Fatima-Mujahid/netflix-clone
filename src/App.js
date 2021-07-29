@@ -1,11 +1,13 @@
-import React from 'react';
-import Row from './Row';
-import Banner from './Banner';
-import requests from './requests';
+import React from 'react'
+import Nav from './Nav'
+import Banner from './Banner'
+import Row from './Row'
+import requests from './requests'
 
 export default function App() {
   return (
     <div>
+      <Nav/>
       <Banner/>
       <Row
         title="NETFLIX ORIGINALS"
@@ -19,5 +21,5 @@ export default function App() {
       <Row title="Romance Movies" fetchURL={requests.fetchRomanceMovies} />
       <Row title="Documentaries" fetchURL={requests.fetchDocumentaries} />
     </div>
-  );
+  )
 }
