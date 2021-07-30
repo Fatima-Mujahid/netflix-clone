@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 import Nav from './Nav'
 import Banner from './Banner'
 import Row from './Row'
@@ -6,7 +7,7 @@ import requests from './requests'
 
 export default function App() {
   return (
-    <div>
+    <div className="main">
       <Nav/>
       <Banner/>
       <Row

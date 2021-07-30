@@ -15,14 +15,15 @@
 
 .nav__logo {
   height: 1.4rem;
+  margin-left: 1.25rem;
 }
 
 .nav__image {
   height: 1.85rem;
-  margin-right: 1rem;
+  margin-right: 1.25rem;
 }
 
 .nav--scrolled {
-    background-color: #111;
-    transition: background-color 200ms linear;
+  background-color: #111;
+  transition: background-color 200ms linear;
 }

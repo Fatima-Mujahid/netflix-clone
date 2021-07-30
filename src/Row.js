@@ -68,7 +68,7 @@ export default function Row({ title, fetchURL }) {
         movieId ? (
           <YouTube videoId={movieId} opts={opts} />
         ) : (
-          <p className="row__message">No Trailer Found :(</p>
+          <p className="row__message">No Trailer Found</p>
         )
       ) : null}
     </div>

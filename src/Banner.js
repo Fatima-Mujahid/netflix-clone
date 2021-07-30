@@ -22,7 +22,7 @@ export default function Banner() {
     <div
       className="banner"
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
+        backgroundImage: `linear-gradient(transparent, transparent, transparent, #111), url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
       }}
     >
       <h1 className="banner__title">{movie.name}</h1>
@@ -35,5 +35,5 @@ export default function Banner() {
         {movie.overview && movie.overview.length >= 150 && '...'}
       </p>
     </div>
-  )
+  );
 }
