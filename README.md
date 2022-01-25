@@ -12,4 +12,4 @@ To use this project, follow the steps:
 
 ### Screenshots
 
-![Netflix Clone](https://github.com/Fatima-Mujahid/netflix-clone/blob/main/Netflix%20Clone.png)
+![Netflix Clone](https://github.com/Fatima-Mujahid/netflix-clone/blob/main/NetflixClone.png)
