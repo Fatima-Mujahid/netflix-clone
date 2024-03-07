@@ -6,7 +6,7 @@ This is a netflix clone created using React. The data is taken from Tmdb API. To
 
 To use this project, follow the steps:
  - Clone the repository.
- - Go to project folder and type "npm install" on the terminal. It will install all node monules.
+ - Go to project folder and type "npm install" on the terminal. It will install all node modules.
  - Get your tmdb API key and add it to the requests.js file in src folder.
  - After installation, type "npm start" in the terminal to run the project.
 
